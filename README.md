@@ -1,106 +1,57 @@
- Car Rental Service
+# Car Rental Management System
 
-Εφαρμογή διαχείρισης ενοικιάσεων αυτοκινήτων σε Java με γραφικό περιβάλλον Swing και αποθήκευση δεδομένων σε αρχεία CSV.
+A Java desktop application for managing a car rental service through a graphical user interface.
 
-## Περιγραφή
+The application uses **Java Swing** for the interface and **CSV files** for local data storage.
 
-Το project υλοποιεί ένα μικρό πληροφοριακό σύστημα για εταιρεία ενοικίασης αυτοκινήτων. Η εφαρμογή ξεκινά με login υπαλλήλου, φορτώνει τα δεδομένα από CSV αρχεία και επιτρέπει τη διαχείριση οχημάτων, πελατών, ενοικιάσεων και χρηστών μέσα από GUI.
+## Features
 
-## Βασικές δυνατότητες
+- Employee login
+- Add and edit vehicles
+- Add and edit customers
+- Search vehicles and customers
+- Create new car rentals
+- Return rented vehicles
+- View rental history by customer
+- View rental history by vehicle
+- Add and remove employees
+- Automatic saving of changes to CSV files
 
-- Login εργαζομένου
-- Προσθήκη και επεξεργασία αυτοκινήτων
-- Προσθήκη και επεξεργασία πελατών
-- Αναζήτηση αυτοκινήτων
-- Αναζήτηση πελατών
-- Καταχώριση νέας ενοικίασης
-- Επιστροφή αυτοκινήτου
-- Προβολή ιστορικού ενοικιάσεων ανά πελάτη
-- Προβολή ιστορικού ενοικιάσεων ανά αυτοκίνητο
-- Προσθήκη και διαγραφή χρηστών
-
-## Τεχνολογίες
+## Technologies
 
 - Java
 - Java Swing
-- CSV αρχεία για persistence
+- CSV files for data storage
 
-Δεν χρησιμοποιείται Maven ή Gradle. Η μεταγλώττιση γίνεται απευθείας με `javac`.
-
-## Δομή project
+## Project Structure
 
 ```text
-Car-rental-Service/
-|-- api/
-|   |-- Main.java
-|   |-- Car.java
-|   |-- Customer.java
-|   |-- Employee.java
-|   |-- ... υπόλοιπα classes λογικής και CSV I/O
-|-- gui/
-|   |-- LoginPanel.java
-|   |-- MenuPanel.java
-|   |-- RentingPanel.java
-|   |-- ... υπόλοιπα panels του γραφικού περιβάλλοντος
-|-- users.csv
-|-- customers.csv
-|-- vehicles_with_plates.csv
-|-- rentings.csv
-```
-
-## Αρχεία δεδομένων
-
-Η εφαρμογή διαβάζει και ενημερώνει τα παρακάτω CSV αρχεία:
-
-- `users.csv`: στοιχεία εργαζομένων και credentials login
-- `customers.csv`: στοιχεία πελατών
-- `vehicles_with_plates.csv`: στοιχεία οχημάτων και κατάσταση διαθεσιμότητας
-- `rentings.csv`: ιστορικό ενοικιάσεων
-
-Σημαντικό: η εφαρμογή περιμένει αυτά τα αρχεία να βρίσκονται στη ρίζα του project, γιατί χρησιμοποιεί relative paths.
-
-## Εκτέλεση
-
-### Προϋποθέσεις
-
-- Εγκατεστημένο JDK 8 ή νεότερο
-- Windows, Linux ή macOS με διαθέσιμη Java
-
-### Μεταγλώττιση
-
-Από τη ρίζα του project:
-
-```bash
-javac -d out api/*.java gui/*.java
-```
-
-Σε PowerShell:
-
-```powershell
-javac -d out api\*.java gui\*.java
-```
-
-### Εκκίνηση
-
-```bash
-java -cp out api.Main
-```
-
-Σημείωση: τρέξε την εντολή από τη ρίζα του project ώστε να φορτωθούν σωστά τα CSV αρχεία.
-
-## Ενδεικτικά στοιχεία login
-
-Μερικοί έτοιμοι χρήστες από το `users.csv`:
-
-- `jsmith / password1`
-- `mjones / password2`
-- `tbrown / password3`
-
-## Πώς λειτουργεί
-
-1. Η εφαρμογή φορτώνει στην αρχή τα δεδομένα από τα CSV αρχεία.
-2. Ο χρήστης κάνει login ως εργαζόμενος.
-3. Από το κεντρικό menu επιλέγει τη λειτουργία που θέλει.
-4. Κάθε αλλαγή αποθηκεύεται ξανά στα αντίστοιχα CSV αρχεία.
-
-
+car-rental-management-java/
+│
+├── api/                    # Application logic and data classes
+│   ├── Main.java
+│   ├── Car.java
+│   ├── Customer.java
+│   ├── Employee.java
+│   ├── Renting.java
+│   ├── CarDatabase.java
+│   ├── CustomerDatabase.java
+│   ├── EmployeeDatabase.java
+│   ├── RentingDatabase.java
+│   ├── CSVReader.java
+│   └── CSVWriter.java
+│
+├── gui/                    # Java Swing user interface
+│   ├── LoginPanel.java
+│   ├── MenuPanel.java
+│   ├── RentingPanel.java
+│   ├── ReturnCarPanel.java
+│   ├── SearchCarPanel.java
+│   ├── SearchCustomerPanel.java
+│   └── Other GUI panels
+│
+├── users.csv
+├── customers.csv
+├── vehicles_with_plates.csv
+├── rentings.csv
+└── README.md
