@@ -91,5 +91,4 @@ car-rental-management-java/
 ├── customers.csv                   # Customer records
 ├── vehicles_with_plates.csv        # Vehicle records
 ├── rentings.csv                    # Rental records
-├── README.md
-└── .gitignore
+└──README.md
